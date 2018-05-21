@@ -17,7 +17,6 @@ object ParQR {
     //set-up Spark Context
     val conf = new SparkConf()
       .setAppName("ParQR - Parallel Qualitative Reasoner")
-      .setMaster("local[4]")
       .set("spark.serializer", "org.apache.spark.serializer.KryoSerializer")
     val sc = new SparkContext(conf)
 
