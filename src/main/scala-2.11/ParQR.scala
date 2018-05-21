@@ -10,13 +10,14 @@ object ParQR {
 
     var inputDir = args {0}
     var configFile = args {1}
-    val outputDir = args {2}
-    val parallel = args {3}.toInt
-    val strategy = args{4}
-    
+    val parallel = args {2}.toInt
+    val strategy = args{3}
+
+
     //set-up Spark Context
     val conf = new SparkConf()
       .setAppName("ParQR - Parallel Qualitative Reasoner")
+      .setMaster("local[4]")
       .set("spark.serializer", "org.apache.spark.serializer.KryoSerializer")
     val sc = new SparkContext(conf)
 
